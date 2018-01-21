@@ -2,13 +2,13 @@
     export default {
         methods: {
             submitForm: function(el) {
-                el.preventDefault();
+                el.preventDefault();    // Prevent regular form submission
                 let method = this._vnode.elm.method;
                 let action = this._vnode.elm.action;
-                let inputs = this.$el.getElementsByTagName('input');
+                let inputs = this.$el.getElementsByTagName('input');  // Get all inputs
                 inputs = Array.prototype.slice.call(inputs);
-                inputs = inputs.filter(input => {return input.type != 'submit'});
-                let textareas = this.$el.getElementsByTagName('textarea');
+                inputs = inputs.filter(input => {return input.type != 'submit'});  // Except submit
+                let textareas = this.$el.getElementsByTagName('textarea'); // get textareas
                 let combined = [].concat(Array.prototype.slice.call(inputs), Array.prototype.slice.call(textareas));
                 combined = Array.prototype.slice.call(combined);
 
@@ -19,13 +19,12 @@
                 });
                 let newArray = data.reduce(function (r, a) {
                     return Object.assign(r, a);
-                }, {});
-                console.log(newArray);
+                }, {});   // map array to turn it into an object {name: value, name2: value2}
 
 
 
                 Vue.axios[method](action, newArray).then((response) => {
-                    data.res = response;
+                    return this.handleResponse(response); // pass response to to handleResponse method of the component
                 });
             },
         }
