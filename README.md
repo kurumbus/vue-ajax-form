@@ -1,9 +1,10 @@
 # vue-ajax-form
 A mixin for vue to submit any form asynchronously
 
-#Usage
+## Usage
 Add as a mixin to a form component:
 
+```
 <script>
     import AjaxForm from '../mixins/ajaxForm.vue';
 
@@ -14,5 +15,6 @@ Add as a mixin to a form component:
         mixins: [AjaxForm],
     };
 </script>
+```
 
 Mixin will prevent default form submission and submit it asynchronously with axios
