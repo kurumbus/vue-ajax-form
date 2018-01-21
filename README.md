@@ -4,7 +4,7 @@ A mixin for vue to submit any form asynchronously
 ## Usage
 Add as a mixin to a form component:
 
-```
+```javascript
 <script>
     import AjaxForm from '../mixins/ajaxForm.vue';
 
