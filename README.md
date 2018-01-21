@@ -17,4 +17,9 @@ Add as a mixin to a form component:
 </script>
 ```
 
+You should also add on-submit event:
+```javascript
+ <form method="POST" v-on:submit="submitForm" action="...">
+```
+
 Mixin will prevent default form submission and submit it asynchronously with axios
